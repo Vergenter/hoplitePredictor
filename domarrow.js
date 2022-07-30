@@ -190,6 +190,8 @@
 
   function create() {
     bodyObserver.observe(document.body, {childList:true, subtree: true});
+    // handle resizing
+    resizeObserver.observe(document.body);
     [...document.body.getElementsByTagName('connection-x')].forEach(createOne);
   }
 
@@ -255,6 +257,8 @@
   var bodyObserver = new MutationObserver(bodyNewElement);
   var connectionObserver = new MutationObserver(changedConnectionTag);
   var connectedObserver = new MutationObserver(changedConnectedTag);
+  // handle resizing
+  var resizeObserver = new ResizeObserver(()=>connectionElements.forEach(repaintWithoutObserve));
   document.body && create() || window.addEventListener("load", create);
 })();
 
