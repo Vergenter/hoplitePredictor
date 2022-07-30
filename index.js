@@ -1,5 +1,5 @@
 
-const EMPTY_IMG = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
+const EMPTY_IMG = "data:,"
 const ASSETS = ["assets/ground.png","assets/player_moved.png","assets/magma.png","assets/altar_on.png","assets/footman.png","assets/archer.png","assets/wizard_discharged.png","assets/wizard_charged.png","assets/demolitionist_without_bomb_I.png","assets/demolitionist_without_bomb_II.png","assets/demolitionist_holding_bomb.png","assets/bomb.png","assets/fleece.png","assets/portal.png","assets/spear.png","assets/stairs.png"]
 const LIMITED_COUNT_ASSETS = ["assets/player_moved.png","assets/spear.png","assets/stairs.png","assets/altar_on.png","assets/fleece.png","assets/portal.png"]
 /**
@@ -39,4 +39,17 @@ function changeImage(img){
     if (IDICES_OUTSIDE_OF_MAP.includes(index)) return
     mapStates[index] =  getNextAsset(mapStates[index])
     img.src = mapStates[index]
+}
+/**
+ * @param {HTMLButtonElement} button
+ */
+function changeToAnalyticView(button){
+    const el = document.createElement('connection-x');
+    el.setAttribute('id', 'my-id');
+    el.setAttribute('from', '#hex_1');
+    el.setAttribute('to', '#hex_2');
+    el.setAttribute('color', 'red');
+    el.setAttribute('tail', '');
+    document.body.appendChild(el)
+
 }
